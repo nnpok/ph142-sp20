@@ -15,8 +15,6 @@ marks for assignments submitted thereafter.
 * This assignment is graded on **correct completion**, all or nothing. You must pass all public tests and submit the assignment for credit.
 * Submission process: Follow the submission instructions on the final page. Make sure you do not remove any `\newpage` tags or rename this file, as this will break the submission.
 
-**IMPORTANT NOTE:** Due to a sudden unforeseen issue with UC Berkeley's Datahub, the submission system is not currently working as of 1/23/2020. We expect the issue to be fixed by 1/25/2020. For this assignment, there is no need to submit.
-
 
 ### Welcome to PH142!
 
@@ -312,6 +310,4 @@ cd; cd ph142-sp20/lab/lab01; python3 turn_in.py
 5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza under the post "Submission Issues".
 
 The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
-
-**IMPORTANT NOTE:** Due to a sudden unforeseen issue with UC Berkeley's Datahub, the submission system is not currently working as of 1/23/2020. We expect the issue to be fixed by 1/25/2020. For this assignment, there is no need to submit.
 
