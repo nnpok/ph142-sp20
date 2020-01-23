@@ -3,15 +3,15 @@ import requests
 import getpass
 import subprocess
 import sys
-import extract_pdf 
+# import extract_pdf 
 from os import listdir
 from os.path import isfile, join
 
 # Change these for each assignment
-ASSIGNMENT_RMD_PATH = 'hw01_data_manipulation_dplyr.Rmd'
-COURSE_ID = 72479
-ASSIGNMENT_ID = 324925
-FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
+ASSIGNMENT_RMD_PATH = 'hw01-data-manipulation-dplyr.Rmd'
+COURSE_ID = 79434 # for ph142-sp20, no need to change
+ASSIGNMENT_ID = 336218
+# FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
 
 # Don't change these
 PDF_PATH = ASSIGNMENT_RMD_PATH.replace('.Rmd', '.pdf')
@@ -63,11 +63,11 @@ if __name__ == '__main__':
     except:
         sys.exit("-----\nError... make sure you haven't changed the assignment file name.")
 
-    try:
-        extract_pdf.export(PDF_PATH, FRQ_PATH, FRQ_PAGES)
-    except:
-        sys.exit("PDF extraction for free-response questions failed. Please check that you " + \
-            "have the correct number of pages in your submission.")
+    # try:
+    #     extract_pdf.export(PDF_PATH, FRQ_PATH, FRQ_PAGES)
+    # except:
+    #     sys.exit("PDF extraction for free-response questions failed. Please check that you " + \
+    #         "have the correct number of pages in your submission.")
 
     client = APIClient()
     email = input("Please provide the email address on your Gradescope account: ")
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     # Use the APIClient to upload submissions after logging in, e.g:
     # client.upload_pdf_submission(1234, 5678, 'student@example.edu', 'submission.pdf')
     src_files = [join("src", f) for f in listdir("src") if isfile(join("src", f))]
-    files = src_files + [ASSIGNMENT_RMD_PATH, FRQ_PATH]
+    files = src_files + [ASSIGNMENT_RMD_PATH, PDF_PATH]
     client.upload_programming_submission(COURSE_ID, ASSIGNMENT_ID, email, files)
     # You can get course and assignment IDs from the URL, e.g.
     # https://www.gradescope.com/courses/1234/assignments/5678

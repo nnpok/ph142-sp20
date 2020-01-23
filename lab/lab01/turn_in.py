@@ -8,9 +8,9 @@ from os import listdir
 from os.path import isfile, join
 
 # Change these for each assignment
-ASSIGNMENT_RMD_PATH = 'hw01-data-manipulation-dplyr.Rmd'
-COURSE_ID = 79434 # for ph142-sp20, no need to change
-ASSIGNMENT_ID = 336218
+ASSIGNMENT_RMD_PATH = 'lab01-intro-to-rmd.Rmd'
+COURSE_ID = 79434
+ASSIGNMENT_ID = 337720
 # FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
 
 # Don't change these

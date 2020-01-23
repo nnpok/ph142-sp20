@@ -1,6 +1,6 @@
 #################################################
-# Autograder tests for PH142 hw01_data_manipulation_dplyr
-#
+# Autograder tests for PH142 hw01-data-manipulation-dplyr
+
 ###############################################
 sol_path <- "setup/src/"
 source("setup/autograder_setup.R")
@@ -11,7 +11,7 @@ setup_autograder(16)
 # --------------------------------------------
 check_problem1 = function() {
   problem_num <- 1 # problem number
-  max_scores[problem_num] <<- 1 # total pts possible
+  max_scores[problem_num] <<- 2 # total pts possible
   num_tests <<- 2 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -48,7 +48,7 @@ check_problem1 = function() {
 # --------------------------------------------
 check_problem2 = function() {
   problem_num <- 2 # problem number
-  max_scores[problem_num] <<- 1 # total pts possible
+  max_scores[problem_num] <<- 2 # total pts possible
   num_tests <<- 3 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -174,12 +174,19 @@ check_problem4 = function() {
 check_problem5 = function() {
   problem_num <- 5 # problem number
   max_scores[problem_num] <<- 1 # total pts possible
-  num_tests <<- 0 # num of checkpoints
+  num_tests <<- 1 # num of checkpoints
   
-  problem_types[problem_num] <<- "free-response" # choices: autograded, free-response
+  problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
   problem_names[problem_num] <<- sprintf("Problem %d", problem_num)
   
   tests_failed <<- num_tests
+  
+  # Test cases here:
+  
+  checkpoint(checkpoint_number = 1,
+             test = p5 == "returns all rows that start with sl", 
+             correct_message = "Correct!",
+             error_message = "Incorrect.")
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -198,7 +205,7 @@ check_problem5 = function() {
 # --------------------------------------------
 check_problem6 = function() {
   problem_num <- 6 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 3 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -242,7 +249,7 @@ check_problem6 = function() {
 # --------------------------------------------
 check_problem7 = function() {
   problem_num <- 7 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -288,7 +295,7 @@ check_problem7 = function() {
 # --------------------------------------------
 check_problem8 = function() {
   problem_num <- 8 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 2 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -334,7 +341,7 @@ check_problem8 = function() {
 # --------------------------------------------
 check_problem9 = function() {
   problem_num <- 9 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -382,7 +389,7 @@ check_problem9 = function() {
 # --------------------------------------------
 check_problem10 = function() {
   problem_num <- 10 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -429,7 +436,7 @@ check_problem10 = function() {
 # --------------------------------------------
 check_problem11 = function() {
   problem_num <- 11 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -476,7 +483,7 @@ check_problem11 = function() {
 # --------------------------------------------
 check_problem12 = function() {
   problem_num <- 12 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 2 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -523,7 +530,7 @@ check_problem12 = function() {
 # --------------------------------------------
 check_problem13 = function() {
   problem_num <- 13 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -570,7 +577,7 @@ check_problem13 = function() {
 # --------------------------------------------
 check_problem14 = function() {
   problem_num <- 14 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -616,7 +623,7 @@ check_problem14 = function() {
 # --------------------------------------------
 check_problem15 = function() {
   problem_num <- 15 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 1 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
@@ -664,7 +671,7 @@ check_problem15 = function() {
 # --------------------------------------------
 check_problem16 = function() {
   problem_num <- 16 # problem number
-  max_scores[problem_num] <<- 3 # total pts possible
+  max_scores[problem_num] <<- 2 # total pts possible
   num_tests <<- 4 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response

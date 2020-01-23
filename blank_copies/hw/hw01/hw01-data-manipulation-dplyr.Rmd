@@ -9,7 +9,7 @@ source("setup/hw01.RAGS.R")
 ```
 
 ### Instructions 
-* Due date: Friday, September 6 5:00pm.
+* Due date: Tuesday, Jan 28 at 10:00pm.
 * Late penalty: 50% late penalty if submitted within 24 hours of due date, no 
 marks for assignments submitted thereafter.
 * This assignment is marked out of 21 points. Points are indicated for each 
@@ -21,7 +21,7 @@ Helpful hints:
 - Every function you need to use was taught during lecture! So you may need to 
 revisit the lecture code to help you along by opening the relevant files on data 
 hub. Alternatively, you may wish to view the code in the condensed PDFs posted 
-on bCourses (under Files > Lectures). Good luck!
+in the lectures file on Datahub (Home > ph142-sp20 > lec). Good luck!
 
 - Knit your file early and often to minimize knitting errors! If you copy and 
 paste code for the slides, you are bound to get an error that is hard to 
@@ -133,14 +133,23 @@ check_problem4()
 ```
 \newpage
 
-**5. [1 point] Run the following chunk of code. What does it return? Replace the line "YOUR ANSWER HERE" below with your one-sentence answer.**
+**5. [1 point] Run the following chunk of code.**
 
 ```{r select-code-partIV}
 select(sleep, starts_with("sl"))
 ```
 
-<TODO: YOUR ANSWER HERE>
+**What does it return? Uncomment one of the possible choices.**
+```{r histogram-GDP-2006}
+# p5 <- "returns the number of columns that start with sl"
+# p5 <- "returns all columns that start with sl"
+# p5 <- "returns all rows that start with sl"
+# p5 <- "returns all animals whose names start with sl""
 
+check_problem5()
+```
+
+It returns the columns that start with sl: `sleep_total`, `sleep_rem`, `sleep_cycle`
 
 \newpage
 
@@ -241,6 +250,15 @@ avg_by_vore <- "<<<<YOUR CODE HERE>>>>"
 
 check_problem16()
 ```
+
+\newpage
+
+### Check your score
+```{r check-total-score}
+# Just run this chunk.
+total_score()
+```
+
 \newpage
 
 ### Submission
@@ -260,6 +278,6 @@ cd; cd ph142-sp20/hw/hw01; python3 turn_in.py
 
 3. Follow the prompts to enter your Gradescope username and password.
 4. If the submission is successful, you should see "Submission successful!" appear as output.
-5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, contact your GSI. 
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza under the post "Submission Issues". 
 
 We will not be accepting late submissions **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
