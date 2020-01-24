@@ -27,7 +27,13 @@ check_problem1 = function() {
              error_message = "You should list 4 functions")
   
   checkpoint(checkpoint_number = 2,
-             test = identical(p1, readRDS(paste0(sol_path, "p1.RDS"))), 
+             test = all(p1 %in% c("rename", 
+                                  "select", 
+                                  "arrange", 
+                                  "filter", 
+                                  "mutate", 
+                                  "group_by", 
+                                  "summarize")), 
              correct_message = "Correct!",
              error_message = "Incorrect.")
   
