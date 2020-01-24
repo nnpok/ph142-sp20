@@ -190,7 +190,7 @@ check_problem5 = function() {
   # Test cases here:
   
   checkpoint(checkpoint_number = 1,
-             test = p5 == "returns all rows that start with sl", 
+             test = p5 == "returns all columns that start with sl", 
              correct_message = "Correct!",
              error_message = "Incorrect.")
   
