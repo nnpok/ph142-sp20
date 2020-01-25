@@ -33,7 +33,11 @@ check_problem1 = function() {
                                   "filter", 
                                   "mutate", 
                                   "group_by", 
-                                  "summarize")), 
+                                  "summarize",
+                                  "dim",
+                                  "head",
+                                  "names",
+                                  "str")), 
              correct_message = "Correct!",
              error_message = "Incorrect.")
   
