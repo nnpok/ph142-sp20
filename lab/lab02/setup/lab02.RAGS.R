@@ -268,9 +268,9 @@ check_problem6 = function() {
              error_message = "Did you define a histogram in ggplot?")
   
   checkpoint(checkpoint_number = 5,
-             test = p6$layers[[1]]$stat_params$binwidth==2000, 
+             test = length(p6$layers[[1]]$stat_params$binwidth) != 0, 
              correct_message = "Correct!",
-             error_message = "Did you set the correct bin width?")
+             error_message = "Did you set a bin width?")
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -320,9 +320,9 @@ check_problem7 = function() {
              error_message = "Did you define a histogram in ggplot?")
   
   checkpoint(checkpoint_number = 5,
-             test = p7$layers[[1]]$stat_params$binwidth==4, 
+             test = length(p7$layers[[1]]$stat_params$binwidth) != 0, 
              correct_message = "Correct!",
-             error_message = "Did you set the correct bin width?")
+             error_message = "Did you set a bin width?")
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -371,9 +371,9 @@ check_problem8 = function() {
              error_message = "Did you define a histogram in ggplot?")
   
   checkpoint(checkpoint_number = 5,
-             test = p8$layers[[1]]$stat_params$binwidth==4, 
+             test = length(p8$layers[[1]]$stat_params$binwidth) != 0, 
              correct_message = "Correct!",
-             error_message = "Did you set the correct bin width?")
+             error_message = "Did you set a bin width?")
   
   checkpoint(checkpoint_number = 6,
              test = length(p8$layers[[1]]$aes_params)!=0, 
