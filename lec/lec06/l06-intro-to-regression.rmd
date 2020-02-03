@@ -1,26 +1,6 @@
 ---
 title: "L06: Intro to Linear Regression "
 date: "February 3, 2020"
-output:
-  beamer_presentation:
-    slide_level: 3
-  ioslides_presentation: default
-  slidy_presentation: default
-header-includes:
-- \usetheme{Goettingen}
-- \renewcommand{\textbf}{\structure}
-- \renewcommand{\mathbf}{\structure}
-- \addtobeamertemplate{navigation symbols}{}{ \usebeamerfont{footline} }
-- \addtobeamertemplate{navigation symbols}{}{ \usebeamercolor[fg]{footline} }
-- \addtobeamertemplate{navigation symbols}{}{ \insertframenumber/\inserttotalframenumber
-  }
-- \usepackage[os=win]{menukeys}
-- \usepackage{soul}
-- \usepackage{xcolor}
-- \usepackage{caption}
-- \usepackage[os=win]{menukeys}
-- \usepackage{copyrightbox}
-classoption: aspectratio=169
 ---
 
 <!-- libraries -->
