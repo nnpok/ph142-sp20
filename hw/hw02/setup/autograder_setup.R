@@ -8,6 +8,7 @@
 suppressWarnings(library(jsonlite))
 suppressWarnings(library(dplyr))
 suppressWarnings(library(assertthat))
+suppressWarnings(library(rlang))
 
 #--------------------------------------------------------------------------------------
 # setup_autograder
