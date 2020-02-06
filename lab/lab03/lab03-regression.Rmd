@@ -82,7 +82,7 @@ p3
 
 check_problem3()
 ```
-\newline
+\newpage
 
 **4. A `geom` that you have not yet learnt is `geom_smooth()`. This geom can fit 
 a curve to the data. Extend your `ggplot()` code by adding geom_smooth() to it:**
