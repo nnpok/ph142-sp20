@@ -1,0 +1,463 @@
+---
+title: "Homework 3"
+author: "Solutions"
+date: "Today's date"
+output:
+  pdf_document: default
+---
+
+```{r setup, include = FALSE}
+# Don't change these lines, just run them!
+source("setup/hw03.RAGS.R")
+```
+
+* Due date: Tuesday, February 11 10:00pm.
+* Late penalty: 50% late penalty if submitted within 24 hours of due date, no 
+marks for assignments submitted thereafter.
+* This assignment is out of 45 total points. Points are indicated for each 
+question. There are 30 questions total.
+* Submission process: Follow the submission instructions on the final page. Make sure you do not remove any `\newpage` tags or rename this file, as this will break the submission.
+
+Helpful hints:
+
+- Every function you need to use was taught during lecture! So you may need to 
+revisit the lecture code to help you along by opening the relevant files on Datahub. 
+Alternatively, you may wish to view the code in the condensed PDFs posted 
+on the course website. Good luck!
+
+- Knit your file early and often to minimize knitting errors! If you copy and 
+paste code for the slides, you are bound to get an error that is hard to 
+diagnose. Typing out the code is the way to smooth knitting! We recommend 
+knitting your file each time after you write a few sentences/add a new code 
+chunk, so you can detect the source of knitting errors more easily. This will 
+save you and the GSIs from frustration!
+
+- If your code runs off the page of the knitted PDF then you will LOSE POINTS! To
+avoid this, have a look at your knitted PDF and ensure all the code fits in the 
+file. When it doesn't, go back to your .Rmd file and add spaces (new lines) using
+the return or enter key so that the code runs onto the next line.
+ 
+--------------------------------------------------------------------------------
+
+```{r load-libraries, message=F}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(broom)
+library(forcats)
+```
+
+### Predicting insurance charges by age and BMI 
+
+**Problem**: Medical insurance charges can vary according to the complexity of a 
+procedure or condition that requires medical treatment. You are tasked with 
+determining how these charges are associated with age, for patients who have a 
+body mass index (bmi) in the "normal" range (bmi between 16 and 25) who are 
+smokers.
+
+**Plan**: You have chosen to use tools to examine relationships between two 
+variables to address the problem. In particular, scatter plots and simple linear
+regression.
+
+**Data**: You have access to the dataset `insurance.csv`, a claims dataset from
+an insurance provider.
+
+**Analysis and Conclusion**: In this assignment you will perform the analysis 
+and make a conclusion to help answer the problem statement.
+
+\newpage
+
+**1. [1 point] Please type one line of code below to import these data into R. Assign the data to `insure_data`. Execute the code by hitting the green arrow and ensure the data set has been saved by looking at the environment tab and viewing the data set by clicking the table icon to the right of its name.**
+
+```{r load-insure-data}
+insure_data <- "<<<<YOUR CODE HERE>>>>"
+
+# ------- REMINDER -------
+# The checks on this homework are only provided as sanity checks.
+# They do not guarantee correctness.
+# ------------------------
+
+check_problem1()
+```
+
+\newpage
+
+**Use the space below to use the functions from lecture to get to know your dataset. Execute these functions line by line so you can look at their output, and examine these data.**
+
+```{r initial-looks}
+dim(insure_data)
+names(insure_data)
+str(insure_data)
+head(insure_data)
+```
+
+\newpage
+
+**2. [1 point] How many individuals are in the dataset? Assign this number to p2.**
+```{r p2}
+p2 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem2()
+```
+
+**3. [1 point] What are the nominal variables in the dataset? Assign the names of these variables to a vector of strings, p3.**
+```{r p3}
+p3 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem3()
+```
+
+**4. [1 point] How many ordinal variables are in the dataset? Assign the number of ordinal variables to p4.**
+```{r p4}
+p4 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem4()
+```
+
+**5. [1 point] Are there continuous variables are in the dataset? Assign the names of these variables to a vector of strings, p5.**
+```{r p5}
+p5 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem5()
+```
+
+**6. [1 point] What are the discrete variables are in the dataset? Assign the names of these variables to a vector of strings, p6.**
+```{r p6}
+p6 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem6()
+```
+
+\newpage
+
+**Run the following code by removing the "#" symbol in front of each of the six lines and executing the code chunk. Remind yourself what the `mutate()` function does in general, and notice that a new function `case_when()` is also being used.**
+
+```{r mutate-case-when}
+insure_data <- insure_data %>% 
+  mutate(bmi_cat = case_when(bmi < 16 ~ "Underweight",
+                             bmi >= 16 & bmi < 25 ~ "Normal", 
+                             bmi >= 25 & bmi < 30 ~ "Overweight",
+                             bmi >= 30 ~ "Obese")
+                  )
+```
+
+**7. [1 point] What did the above code achieve?:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage
+
+**8. [1 point] What type of variable is `bmi_cat`? Uncomment one of the choices below.**
+```{r p8}
+# p8 <- "ordinal"
+# p8 <- "nominal"
+# p8 <- "continuous"
+# p8 <- "discrete"
+
+# This only checks that you've selected an answer, not its correctness.
+check_problem8()
+```
+
+\newpage
+
+**9. [1 point] Read the Problem statement proposed at the beginning of this exercise. Who belongs to the population of interest? Uncomment one of the choices below.** 
+```{r p9}
+# p9 <- "Smokers of normal BMI"
+# p9 <- "Smokers of overweight BMI"
+# p9 <- "Smokers who have abnormal BMI"
+# p9 <- "All people at risk of high medical charges"
+
+# This only checks that you've selected an answer, not its correctness.
+check_problem9()
+```
+
+
+**10. [1 point] Using a dplyr function, make a new dataset called `insure_subset` containing the population of interest.**
+
+```{r dplyr-the-data}
+insure_subset <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem10()
+```
+
+\newpage
+
+**11. [3 points] Make a scatter plot of the relationship between `age` and insurance `charges` for the population of interest. Give your plot an informative title.**
+
+```{r scatter-plot}
+p11 <- "<<<<YOUR CODE HERE>>>>"
+p11
+
+
+check_problem11()
+```
+
+\newpage
+
+**12. [2 points] Run a linear regression model on the relationship between `age` and `charges`. Think about which variable is explanatory (X) and which is response (Y). Assign the regression model to the name `insure_mod`. Then type `tidy(insure_mod)` below the model's code and execute both lines.**
+
+```{r regression-mod}
+insure_model <- "<<<<YOUR CODE HERE>>>>"
+# <<<<YOUR CODE HERE>>>>
+
+
+check_problem12()
+
+```
+
+**13a. [1 point] Interpret the slope parameter:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**13b. [1 point] Interpret the intercept parameter:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**13c. [1 point] Does the intercept make sense in this context?:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage
+
+**14. [1 point] Add the line of best fit to your scatterplot by copying and pasting the plot's code from Problem 11 into the chunk below and adding a `geom` that can be used to add a regression line:**
+
+```{r scatter-plot-with-line}
+p14 <- "<<<<YOUR CODE HERE>>>>"
+p14
+
+
+check_problem14()
+```
+
+\newpage
+
+**15. [2 points] What do you notice about the fit of the line in terms of the proportion of points above vs. below the line. Why do you think that is?:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage
+
+**Run the following `filter()` function by removing the "#" symbol in front of the two lines of code and executing the code chunk.**
+
+```{r filter-smalller}
+insure_smaller_subset <- insure_subset %>% 
+  filter(charges < 30000 & ! (charges > 25000 & age == 20))
+```
+
+**16. [2 points] How many individuals were removed? Who were they?:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage
+
+**17. [2 points] Run a regression model on `insure_smaller_subset` between `charges` and `age`. Assign it to insure_better_model and look at the output using the `tidy()` function, as was done with the previous linear model.**
+
+```{r second-regression-mod}
+insure_better_model <- "<<<<YOUR CODE HERE>>>>"
+# "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem17()
+
+```
+
+\newpage
+
+**18. [2 points] Add the new regression line to your ggplot from Problem 14. Keep the older regression line on the plot for comparison. To distinguish them, change the color, line type, or line width of the newly-added line.**
+
+```{r scatter-two-lines}
+p18 <- "<<<<YOUR CODE HERE>>>>"
+p18
+
+
+check_problem18()
+```
+
+\newpage
+
+**19. [1 point] Calculate the r-squared value for `insure_model` using a function learned in class. Assign this value to insure_model_r2.**
+
+```{r rsquared}
+insure_model_r2 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem19()
+```
+
+**20. [1 point] Calculate the r-squared value for `insure_better_model` using a function learned in class. Assign this value to insure_better_model_r2.**
+
+```{r rsquared}
+insure_better_model_r2 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem20()
+```
+
+\newpage
+
+**21. [2 points] Calculate the correlation between `age` and `charges` using the subset `insure_subset`. Also calculate correlation squared. You should use `summarize()` and name the two new columns `corr` and `corr_sq`. What do you notice about the relationship between the correlation and r-squared values that you calculated earlier?**
+
+```{r correlations}
+p21 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem21()
+```
+
+**22. [2 points] Calculate the correlation between `age` and `charges` using the smaller dataset `insure_smaller_subset`. Also calculate correlation squared. You should use `summarize()` and name the two new columns `corr` and `corr_sq`. What do you notice about the relationship between the correlation and r-squared values that you calculated earlier?**
+
+```{r correlations}
+p22 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem22()
+```
+
+\newpage
+
+### PART B
+
+**Your supervisor asks you to extend your analysis to consider other smokers with BMIs classified as overweight or obese. In particular, she wanted to know if the relationship between age and medical charges is different for different BMI groups. You can use data visualization coupled with your skills in linear regression to help answer this question.**
+
+**23. [1 point] Make a new dataset called `insure_smokers` that includes smokers of any BMI.**
+
+```{r dplyr-the-data-smokers}
+insure_smokers <- "<<<<YOUR CODE HERE>>>>"
+  
+
+check_problem23()
+```
+
+\newpage
+
+**24. [1 point] Make a scatter plot that examines the relationship between `age` and `charges` separately for normal, overweight, and obese individuals. A `facet_` command may help you.**
+
+```{r ggplot-by-bmi}
+p24 <- "<<<<YOUR CODE HERE>>>>"
+p24
+
+
+check_problem24()
+```
+
+**Is there something out of order with your plot you just made? The issue is that the plot is automatically displayed by listing the BMI categories alphabetically. Run the following code chunk to assign an ordering to the values of `bmi_cat`.**: 
+
+```{r fct-relevel}
+insure_smokers <- insure_smokers %>% 
+  mutate(bmi_cat_ordered = forcats::fct_relevel(bmi_cat, "Normal", "Overweight", "Obese"))
+```
+
+\newpage
+
+**25. [1 point] Re-run your plot code, but this time, facet using `bmi_cat_ordered`.**
+
+```{r ggplot-by-bmi-2}
+p25 <- "<<<<YOUR CODE HERE>>>>"
+p25
+
+
+check_problem25()
+```
+
+\newpage
+
+**26. [3 points] Run a separate linear model for each BMI group. To do this, you will need to subset your data into the three groups of interest first. Call your models `normal_mod`, `overweight_mod`, `obese_mod`. Use the `tidy()` function to display the output from each model.**
+
+```{r more-models-more-outputs}
+# "<<<<YOUR CODE HERE>>>>"
+# "<<<<YOUR CODE HERE>>>>"
+# "<<<<YOUR CODE HERE>>>>"
+
+normal_mod <- "<<<<YOUR CODE HERE>>>>"
+overweight_mod <- "<<<<YOUR CODE HERE>>>>"
+obese_mod <- "<<<<YOUR CODE HERE>>>>"
+
+# "<<<<YOUR CODE HERE>>>>"
+# "<<<<YOUR CODE HERE>>>>"
+# "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem26()
+```
+
+\newpage
+
+**For the next three problems, use the models to predict medical charges for a 20-year old by weight category. You don't need an R function to make these predictions, just the output from the model. Show your work for each calculation by writing the mathematical expression in and round to the nearest dollar.**
+
+**27. [1 point] ...among normal BMI group:**
+```{r predict-1}
+p27 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem27()
+```
+
+**28. [1 point] ...among overweight BMI group:**
+```{r predict-2}
+p28 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem28()
+```
+
+**29. [1 point] ...among obese BMI group:**
+```{r predict-1}
+p29 <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem29()
+```
+
+\newpage
+
+**30. [3 points] In three sentences maximum, (1) comment on the direction of the association, (2) comment on how much the slopes vary across the BMI groups, and (3) how much the prediction for a 20-year old varies.**
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+\newpage
+
+### Check your score
+
+Click on the middle icon on the top right of this code chunk (with the downwards gray arrow and green bar) to run all your code in order. Then, run this chunk to check your score.
+```{r check-total-score}
+# Just run this chunk.
+total_score()
+```
+
+\newpage
+
+### Submission
+
+For assignments in this class, you'll be submitting using the **Terminal** tab in the pane below. In order for the submission to work properly, make sure that:
+
+1. Any image files you add that are needed to knit the file are in the `src` folder and file paths are specified accordingly. 
+2. You **have not changed the file name** of the assignment.
+3. The file is saved (the file name in the tab should be **black**, not red with an asterisk).
+4. The file knits properly.
+
+Once you have checked these items, you can proceed to submit your assignment.
+
+1. Click on the **Terminal** tab in the pane below.
+2. Copy-paste the following line of code into the terminal and press enter.
+
+cd; cd ph142-sp20/hw/hw03; python3 turn_in.py
+
+3. Follow the prompts to enter your Gradescope username and password. When entering your password, you won't see anything come up on the screen--don't worry! This is just for security purposes--just keep typing and hit enter.
+4. If the submission is successful, you should see "Submission successful!" appear as output.
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
+
+The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.

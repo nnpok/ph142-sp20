@@ -1,0 +1,207 @@
+---
+title: "Lab 3"
+author: "Your name and student ID"
+date: "today's date"
+output: pdf_document
+---
+
+```{r setup, include = FALSE}
+# Don't change these lines, just run them!
+source("setup/lab03.RAGS.R")
+```
+
+
+### Instructions
+
+This lab uses the same data set as Lab 1 and Assignment 1. In those exercises, you
+investigated the distribution of global cesarean delivery rates and country's 
+GDPs. In part I of this lab, we will look at the relationship between these 
+variables using the skills we learned from Chapters 3 and 4.
+
+Start by loading the required libraries, reading in the data and adding on a 
+variable:
+
+```{r initial-setup}
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(broom)
+
+CS_data <- read_csv("cesarean.csv")
+
+# This code re-orders the variable Income_Group in the specified order.
+# Note that it *does not* change the order of the data frame (like arrange() does)
+# Rather, it specifies the order the data will be plotted. 
+# This will make more sense when we plot the data using Income_Group, and then
+# again using Income_Group_order
+CS_data$Income_Group <- forcats::fct_relevel(CS_data$Income_Group, 
+                                            "Low income", "Lower middle income", 
+                                            "Upper middle income", "High income: nonOECD", 
+                                            "High income: OECD")
+
+CS_data <- CS_data %>% mutate(CS_rate_100 = CS_rate*100)
+```
+
+\newpage 
+
+**1. Make a scatter plot between `CS_rate_100` and `GDP_2006`:**
+
+```{r scatterplot}
+p1 <- "<<<<YOUR CODE HERE>>>>"
+p1
+
+
+check_problem1()
+```
+
+In your plot, you might notice that many of the points are condensed towards the 
+lower left corner. And you might recall from the lab and assignment that the 
+distributions of both cesarean delivery rate and GDP covered a wide range of 
+values. Both of these variables are good candidates for log transformations to
+spread out the range of data at the lowest levels.
+
+\newpage
+
+**2. Using the `mutate()` function, add two new logged variables to the data set
+`CS_data` and assign this new data set to `CS_data_log`. Call the variables `log_CS` and `log_GDP`. Use base e, also known as natural logarithms, to create the logged variables:**
+
+```{r create-logged variables}
+CS_data_log <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem2()
+```
+\newpage
+
+**3. Remake the scatter plot using the logged variables**:
+
+```{r scatter-logged}
+p3 <- "<<<<YOUR CODE HERE>>>>"
+p3
+
+
+check_problem3()
+```
+\newline
+
+**4. A `geom` that you have not yet learnt is `geom_smooth()`. This geom can fit 
+a curve to the data. Extend your `ggplot()` code by adding geom_smooth() to it:**
+```{r add-smoothed-curve}
+p4 <- "<<<<YOUR CODE HERE>>>>"
+p4
+
+check_problem4()
+```
+
+**Does the relationship between logged GDP and logged CS look linear?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage 
+
+**5. Modify your scatter plot by linking the color of the points to the variable
+`Income_Group`.**
+
+```{r color-points-by-income-group}
+p5 <- "<<<<YOUR CODE HERE>>>>"
+p5
+
+check_problem5()
+```
+
+**Based on this colored scatter plot, it looks like the relationship is linear 
+for those countries that are not categorized as one of the two high income
+categories.**
+
+\newpage
+
+**6. For this lab, we would like to use linear regression. To do this, use a 
+`dplyr` function to make a new data set called `CS_data_sub` that only contains
+the low-, lower-middle, and upper-middle income countries (hint: You might want
+to look at the data to see exactly what these levels are called in the data set):**
+
+```{r subset-low-mid-income}
+CS_data_sub <- "<<<<YOUR CODE HERE>>>>"
+
+
+check_problem6()
+```
+
+\newpage
+
+**7. Remake the last scatter plot, this time using `CS_data_sub` to see if the 
+relationship looks approximately linear between the logged variables:**
+
+```{r scatter-low-mid}
+p7 <- "<<<<YOUR CODE HERE>>>>"
+p7
+
+
+check_problem7()
+```
+
+**8. Given that the relationship is approximately linear, use linear regression to 
+model the relationship between `log_CS` as the response variable and `log_GDP` 
+as the explanatory variable. Don't forget to specify the correct data set!:**
+
+```{r linear-model}
+p8 <- "<<<<YOUR CODE HERE>>>>"
+p8
+
+check_problem8()
+```
+
+**9. Interpret the slope estimate:**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**10. Estimate what the cesarean delivery rate would be for a country with a GDP 
+of 2000. Outline the steps you take to calculate your answer and provide an 
+interpretation. Round your final answer to one decimal place.**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**11. Is it appropriate to use the model to predict the cesarean delivery rate 
+for a country with a GDP of 50,000? Why or why not? Based on the relationship in 
+the full data set, would you expect the linear model to over or under predict?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+\newpage
+
+### Check your score
+
+Click on the middle icon on the top right of this code chunk (with the downwards gray arrow and green bar) to run all your code in order. Then, run this chunk to check your score.
+```{r check-total-score}
+# Just run this chunk.
+total_score()
+```
+
+\newpage
+
+### Submission
+
+For assignments in this class, you'll be submitting using the **Terminal** tab in the pane below. In order for the submission to work properly, make sure that:
+
+1. Any image files you add that are needed to knit the file are in the `src` folder and file paths are specified accordingly. 
+2. You **have not changed the file name** of the assignment.
+3. The file is saved (the file name in the tab should be **black**, not red with an asterisk).
+4. The file knits properly.
+
+Once you have checked these items, you can proceed to submit your assignment.
+
+1. Click on the **Terminal** tab in the pane below.
+2. Copy-paste the following line of code into the terminal and press enter.
+
+cd; cd ph142-sp20/lab/lab02; python3 turn_in.py
+
+3. Follow the prompts to enter your Gradescope username and password. When entering your password, you won't see anything come up on the screen--don't worry! This is just for security purposes--just keep typing and hit enter.
+4. If the submission is successful, you should see "Submission successful!" appear as output.
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
+
+The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
+
