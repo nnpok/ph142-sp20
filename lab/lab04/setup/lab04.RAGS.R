@@ -262,17 +262,17 @@ check_problem6 = function() {
   
   
   checkpoint(checkpoint_number = 4,
-             test = p7[2] == 15,
+             test = p6[2] == 15,
              correct_message = "Correct probability for P(D|A', S')",
              error_message = "Incorrect probability for P(D|A', S')")
   
   checkpoint(checkpoint_number = 5,
-             test = p7[3] == 60,
+             test = p6[3] == 60,
              correct_message = "Correct probability for P(D|A, S)",
              error_message = "Incorrect probability for P(D|A, S)")
   
   checkpoint(checkpoint_number = 6,
-             test = p7[4] == 30,
+             test = p6[4] == 30,
              correct_message = "Correct probability for P(D|A, S')",
              error_message = "Incorrect probability for P(D|A, S')")
   
@@ -302,7 +302,7 @@ check_problem7 = function() {
   tests_failed <<- num_tests
   
   # Test cases here:
-
+  
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -397,7 +397,7 @@ check_problem9 = function() {
   
   
   checkpoint(checkpoint_number = 4,
-             test = p7[2] ==40,
+             test = p9[2] ==40,
              correct_message = "Correct probability for P(D|A)",
              error_message = "Incorrect probability for P(D|A)")
   
