@@ -391,13 +391,13 @@ check_problem9 = function() {
              error_message = "Your list needs 2 elements")
   
   checkpoint(checkpoint_number = 3,
-             test = p9[1] == 22,
+             test = p9[1] == 17,
              correct_message = "Correct probability for P(D|A')",
              error_message = "Incorrect probability for P(D|A').")
   
   
   checkpoint(checkpoint_number = 4,
-             test = p9[2] ==40,
+             test = p9[2] ==39,
              correct_message = "Correct probability for P(D|A)",
              error_message = "Incorrect probability for P(D|A)")
   
