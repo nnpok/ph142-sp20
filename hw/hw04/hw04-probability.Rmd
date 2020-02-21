@@ -65,8 +65,7 @@ model. If not, then delete it. *Knit now* to see how this table is rendered in y
 2) [2 points] Simulate data that equals 0 if there is no birth defect and equals
 1 if there is a birth defect. Simulate this data for 200 births at a local 
 hospital. Be sure to use the risk of birth defect from part a). Assign your 
-simulated output the name `sim_01`. Hint: See the lab "lab04-probability" to 
-remind yourself how to simulate data of this form. Print your simulated births 
+simulated output the name `sim_01`. Print your simulated births 
 to the screen.
 
 Before you run your simulation, we will "set the seed". We all will set the seed
@@ -80,8 +79,6 @@ set.seed(100)
 ```{r simulate-200-births}
 sim_01 <- "YOUR ANSWER HERE"
 sim_01
-
-
 check_problem2()
 ```
 
@@ -106,8 +103,6 @@ to do this.
 ```{r, problem-3}
 output_01 <- "YOUR ANSWER HERE"
 output_01
-
-
 check_problem3()
 ```
 
@@ -121,20 +116,15 @@ name each time. Print to the screen the number and proportion after each run.
 sim_02 <- "YOUR ANSWER HERE"
 output_02 <- "YOUR ANSWER HERE"
 output_02
-
 sim_03 <- "YOUR ANSWER HERE"
 output_03 <- "YOUR ANSWER HERE"
 output_03
-
 sim_04 <- "YOUR ANSWER HERE"
 output_04 <- "YOUR ANSWER HERE"
 output_04
-
 sim_05 <- "YOUR ANSWER HERE"
 output_05 <- "YOUR ANSWER HERE"
 output_05
-
-
 check_problem4()
 ```
 
@@ -146,8 +136,6 @@ simulation in *increasing* order.
 ```{r, problem-5}
 p5 <- c("YOUR ANSWER HERE")
 p5
-
-
 check_problem5()
 ```
 
@@ -197,8 +185,6 @@ to percentages and round to two decimal places. Save these values as the vector 
 ```{r, problem-2a}
 p8 <- c("YOUR ANSWER HERE")
 p8
-
-
 check_problem8()
 ```
 
@@ -211,8 +197,6 @@ calculate the probability that someone will have both HIV and HCV. Convert to a 
 ```{r, problem-2b}
 p9 <- "YOUR ANSWER HERE"
 p9
-
-
 check_problem9()
 ```
 
@@ -225,8 +209,6 @@ answer. Uncomment your selection.
 ```{r, problem-10}
 #p10 <- "independent"
 #p10 <- "not independent"
-
-
 check_problem10()
 ```
 
@@ -286,7 +268,6 @@ or it won't run when you knit the file!:>
 ```{r, echo=F, out.width="80%", eval=F}
 library(knitr)
 #include_graphics("src/your-scans-name.jpg")
-
 # Once you replace the above line with your file's name (after uploading the file
 # to datahub's Image sub-directory) you can execute the line of code and 
 # verify that the tree diagram is printed below the code chunk.
@@ -312,8 +293,6 @@ percentage rounded to one decimal place in the object p15.
 ```{r}
 p15 <- "YOUR ANSWER HERE"
 p15
-
-
 check_problem15()
 ```
 
@@ -325,10 +304,7 @@ Store the answer in object p16.
 ```{r}
 p16 <- "YOUR ANSWER HERE"
 p16
-
 check_problem16
-
-
 check_problem16()
 ```
 
@@ -367,3 +343,4 @@ cd; cd ph142-sp20/hw/hw04; python3 turn_in.py
 5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
 
 The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
+
