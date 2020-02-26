@@ -1,0 +1,489 @@
+---
+title: 'Lab 5 Solutions: Independence, Screening, and Normal Distribution'
+author: "Your name and Student ID"
+date: "Today's Date"
+output: pdf_document
+---
+
+
+```{r setup, include = FALSE}
+# Don't change these lines, just run them!
+source("setup/lab05.RAGS.R")
+```
+
+### Instructions
+
+Part 1 of this lab focuses on calculating probability of independent events.
+
+### Section I: Breakout Problems on Independence
+
+## Blood Type
+
+**1. From Baldi and Moore (3E question 10.28, 4E question 10.30)**
+All human blood can be one of the following types: O, A, B, or AB,
+but the distribution of types varies a bit among groups of people.  
+Here are the distributions of blood types for a randomly chosen person in China and in the United States:
+
+Check out the following table:
+
+|       |  $O$ |  $A$ |  $B$ |  $AB$ | 
+|-------|------|------|------|-------|
+|China  |  0.35|  0.27|  0.26|   0.12| 
+|U.S.   |  0.45|  0.40|  0.11|   0.04|   
+
+
+
+Choose an American and a Chinese at random, independently of each other.
+
+**1.a	What is the probability that both have type O blood?**
+
+
+<TODO: YOUR ANSWER HERE>
+
+
+**1.b	What is the probability that both have the same blood type?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**2. From Baldi and Moore (3E question 10.29, 4E not present)**
+
+_Universal blood donors._  
+People with type O-negative blood are universal donors.  
+That is, any patient can receive a transfusion of type O-negative blood.  
+Only 7.2 % of the American population have O-negative blood.  
+If 10 people appear at random to give blood, what is the probability that at least  1  of them is a universal donor?
+
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+**3. From Baldi and Moore (3E question 10.46, 4E not present)**
+
+_Mendelian inheritance._ 
+
+Some traits of plants and animals depend on inheritance of a single gene.  
+This is called _Mendelian inheritance_, after Gregor Mendel (1822-1884).
+Each of us has an ABO blood type, which describes whether two characteristics called A and B are present.  
+Every human being has two blood type alleles (gene forms), one inherited from our mother and one from our father.  
+Each of these alleles can be A, B, or O.  Which two we inherit determines our blood type.  
+Here is a table that shows what our blood type is for each combination of two alleles.
+
+|Alleles inherited   | 	Blood type|
+|--------------------|------------|
+|	A and A            |           A|
+|	A and B	           |			    AB|
+|	A and O	           |			     A|
+|	B and B	           |           B|
+|	B and O	           |		    	 B|
+|	O and O	           |     			 O|
+
+We inherent each of a parent’s two alleles with probability  .50,
+and we inherit independently from our mother and our father.
+
+
+Punnett squares are used in genetics courses to organize these sorts of information.
+The alleles for one parent label the row and for the other parent label the columns.
+
+
+**3.a Rachel and Jonathan both have alleles A and B. What blood types can their children have?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**3.b Jasmine has alleles A and O. Tyrone has alleles B and O.  What is the probability that a child of these parents has blood type O?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+**3.c If Jasmine and Tyrone have three children, what is the probability that all three have blood type O?	What is the probability that the first child has blood type O and the next two do not?**
+
+The next calculations assume that they do not have any twins or triplets, 
+so that each child is independent.
+ 
+what is the probability that all three have blood type O?	
+
+<TODO: YOUR ANSWER HERE>
+
+
+what is the probability that the first child has blood type O and the next two do not?
+             
+<TODO: YOUR ANSWER HERE>
+
+
+## The Flu
+
+**4. From Baldi and Moore (2E question 10.20 to 10.23)**
+
+The November 2009 Gallup-Healthways Well-Being Index survey asked a random sample of 28,606 American adults whether they had the flu on the day before the interview.  Here are the results by age group:
+|age group |		flu| 		no flu|	  total|
+|----------|-------|----------|--------|
+| 18 to 29 |		 88|	   2,486|   2,574|
+|	30 to 44 |		132|	   5,162|   5,294|
+|	45 to 64 |		276|		11,733|  12,009|
+|	65+      |	  122|	   8,607|	  8,729|
+|total     |	  618|		27,988|  28,606|
+
+The events  "adult is in a specified age group" and "adult has the flu" are called **independent** if the probability of flu does not vary across the age groups.
+
+The conditional probabilities of flu among those age 65 and older __(0.0140)__ and flu among those 18 to 29 years old __(0.0342)__. 
+Compare the probability of flu among those age 65 and older and the probability of flu among those 18 to 29 years old.
+
+
+<TODO: YOUR ANSWER HERE>
+
+
+This shows that the events "age group" and "adult has the flu" are **not** independent.
+Another way to check for independence is to see if the overall probability of flu differs from the age-group stratum specific probabilities of flu. Do this, too.
+
+<TODO: YOUR ANSWER HERE>
+
+## Testing for HIV 
+
+**5. From Baldi and Moore (question 10.14)**
+
+
+Enzyme immunoassay tests are used to screen blood specimens for the
+presence of antibodies to HIV, the virus that causes AIDS. Antibodies indicate the presence of
+the virus. The test is quite accurate but is not always correct. Here are approximate
+probabilities of positive and negative test results when the blood tested does and does not
+actually contain antibodies to HIV. [Hint: these are conditional probabilities, given HIV status.]
+
+* P( test positive + | antibodies present ) = 0.9985
+* P( test positive + | antibodies absent ) = 0.0060
+* P( test negative – | antibodies present ) = 0.0015
+* P( test negative – | antibodies absent ) = 0.9940
+
+Suppose that 1% of a large population carries antibodies to HIV in its blood.
+
+**5.a Draw a tree diagram representing the HIV status if a person from this population (outcomes: antibodies present or absent) and the blood test result (outcomes: test positive or test negative). **
+
+(Use the code chunk below to include an image file of your drawing. To do so you 
+need to delete the hashtag, upload the image to Datahub into the `src` directory and replace
+the file name with your file name. JPG or PNG will both work.)
+
+```{r}
+#Take off the '#' in the following code and replace the code with you file name 
+#knitr::include_graphics("src/Your-file-name.JPG")
+
+#Your code for range here
+```
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+**5.b What is the probability that the test is positive for a randomly chosen person from this population?**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**6. From Baldi and Moore (10.16)**
+
+Continue your work and probability assumptions from Question 6.
+
+**6.a What is the probability that a person has the antibody, given that the test is positive.  Explain in your own words what this means.**
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+**6.b. Identify the test's sensitivity, specificity, and positive predictive value.**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**7. According to the CDC's Behavioral Risk Factor Surveillance System (BRFSS) about 60% of American adults live a sedentary lifestyle.**
+
+
+**Noting that random sampling gives us independent observations, you randomly select 10 adults from this population.  Find the following probabilities:**
+
+
+**7.a All 10 have a sedentary lifestyle**
+
+<TODO: YOUR ANSWER HERE>
+
+
+**7.b At least one does not have a sedentary lifestyle**
+
+<TODO: YOUR ANSWER HERE>
+
+
+
+ 
+### Section 2: Normal Distribution
+
+Part 2 of this lab introduces the normal distribution.
+
+Notation reminder: Baldi and Moore use a compact notation for specifying that a population has a distribution that follows a normal curve with mean $\mu$ and standard deviation $\sigma$ : N( $\mu$ , $\sigma$ )
+
+R Functions Reminder: `qnorm` takes a probability as its input and gives back a value on the distribution (aka a z-score if the distribution is N(0,1)). By default, it assumes the probability area you enter (as a decimal, not a percent) is the area below (or less than) the z score you need.  The `pnorm` function takes a  z value or and X value as its input and gives back a probability area. 
+
+**Question 1. Z scores. **
+
+(From Baldi and Moore, 3E question 11.27, 4E question 11.29) 
+
+Use R to find the standardized value z that satisfies each of the following conditions. In each case, sketch a standard Normal curve with your value of z marked on the axis.
+
+(a)	The probability is 0.8 that a randomly selected observation falls below z.  
+
+```{r Section II Q1a}
+
+p1 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p1
+
+check_problem1()
+
+
+```
+ 
+(b)	The probability is 0.35 that a randomly selected observation falls above z. 
+
+```{r Section II Q1b}
+p2 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p2
+
+check_problem2()
+
+```
+
+
+
+**Question 2. Full-Term Birth Weights** 
+
+(From Baldi and Moore, 3E question 11.31, 4E question 11.33) 
+
+For babies born at full term (37 to 39 completed weeks of gestation), the distribution of birth weight (in grams) is approximately normally distributed with a mean of 3350 grams and a standard deviation of 440 grams, N(3350,440).
+
+
+	(a) What is the 25th percentile of the birthweights for full term babies? 
+	
+```{r Section II Q2a}
+
+p3 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p3
+
+check_problem3()
+
+```
+   
+	(b) What is the 90th percentile of the birthweights for full term babies? 
+	
+```{r Section II Q2b}
+
+p4 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p4
+
+check_problem4()
+
+```
+
+
+	(c) What is the range of the middle 50% of birthweights for full term babies? 
+	
+```{r Section II Q2c}
+
+p5 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p5
+
+check_problem5()
+
+```
+
+
+**Question 3. Late Pre-Term Birth Weights** 
+(From Baldi and Moore, 3E question 11.32, 4E question 11.34) 
+
+How much difference do a couple of weeks make for birthweight? Late preterm babies are born with 35 to 37 weeks completed of gestation. The distribution of birth weight (in grams) or late preterm babies is approximately normally distributed with a mean of 2750 grams and a standard deviation of 560 grams,  N(2750,560).
+
+
+	(a) What is the 25th percentile of the birthweights for late-preterm term babies? 
+```{r Section II Q3a}
+p6 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p6
+
+check_problem6()
+```
+        
+
+	(b) What is the 90th percentile of the birthweights for late-preterm babies?
+
+```{r Section II Q3b}
+
+p7 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p7
+
+check_problem7()
+
+
+```
+
+
+
+	(c) What is the range of the middle 50% of birthweights for late-preterm babies?
+```{r Section II Q3c}
+
+p8 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p8
+
+check_problem8()
+
+```
+
+	
+**Question 4. Compare your answers to the parts of exercises 2 and 3. What do you notice?**
+
+<TODO: YOUR ANSWER HERE>
+  
+// BEGIN SOLUTION 
+
+Note that the larger standard deviation for the late-preterm babies, 560 g vs 440 g, makes the ranges bigger and the percentiles farther from the mean.
+Since the 25th percentile for the late-preterm births is 2372.3 g, well below 2500 g, we know that more than 25% of the late-preterm babies are low birth weight.
+
+// END SOLUTION 
+
+**Question 5. Newborn Respirations. **  
+(From Baldi and Moore, 3E questions 11.15-11.17, 4E question 11.17-11.19)
+
+  (a) The respiratory rate per minute in newborns varies according to a distribution that is approximately Normal with mean 50 and standard deviation 5. 
+The probability (convert to a percentage and round to two decimal places, but do not include the percent sign) that a randomly chosen newborn has a respiratory rate of 55 per minute or more is approximately:
+
+```{r Section II Q5a}
+p9 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p9
+
+check_problem9()
+
+
+```
+
+
+  (b) The probability (convert to a percentage and round to two decimal places, but do not include the percent sign) that a randomly chosen newborn has a respiratory rate per minute between 40 and 55 is approximately: 
+```{r Section II Q5b}
+
+p10 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p10
+
+check_problem10()
+
+```
+	
+
+
+**Question 6. Drosophila.**
+(From Baldi and Moore, 3E questions 11.20 and 11.22, 4E question 11.23)
+
+The common fruit fly, Drosophila melanogaster, is the most studied organism in genetic research because it is small, easy to grow, and reproduces rapidly. The length of the thorax (where the wings and legs attach) in a population of male fruit flies is approximately Normal with mean 0.800 millimeters (mm) and standard deviation 0.078 mm.
+
+(a)	Choose a male fruit fly at random. The probability (convert to a percentage and round to two decimal places,but do not include the percent sign) that the fly you choose has a thorax longer than 1 mm is about:
+
+```{r Section II Q6a}
+p11 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p11
+
+check_problem11()
+
+```
+
+
+**Question 7. Z scores.**
+(From Baldi and Moore, 3E question 11.25, 4E question 11.27)
+
+Use R’s pnorm function to find the proportion of observations from a standard Normal distribution that fall in each of the following regions. In each case, sketch a standard Normal curve and shade the area representing the region.
+
+(a)	z $\le$ -2.25
+```{r Section II Q7a}
+p12 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p12
+
+check_problem12()
+
+
+```
+
+
+(b)	z $\ge$ -2.25
+
+```{r Section II Q7b}
+
+p13 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p13
+
+check_problem13()
+
+
+```
+
+(c)	z > 1.77
+
+```{r Section II Q7c}
+
+p14 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p14
+
+check_problem14()
+
+```
+
+(d) -2.25 < z < 1.77
+
+```{r Section II Q7d}
+
+
+p15 <- "<<<<YOUR ANSWER HERE>>>>"
+
+p15
+
+check_problem15()
+
+```
+
+\newpage
+
+
+### Check your score
+
+Click on the middle icon on the top right of this code chunk (with the downwards gray arrow and green bar) to run all your code in order. Then, run this chunk to check your score.
+```{r check-total-score}
+# Just run this chunk.
+total_score()
+```
+
+\newpage
+
+### Submission
+
+For assignments in this class, you'll be submitting using the **Terminal** tab in the pane below. In order for the submission to work properly, make sure that:
+
+1. Any image files you add that are needed to knit the file are in the `src` folder and file paths are specified accordingly. 
+2. You **have not changed the file name** of the assignment.
+3. The file knits properly.
+
+Once you have checked these items, you can proceed to submit your assignment.
+
+1. Click on the **Terminal** tab in the pane below.
+2. Copy-paste the following line of code into the terminal and press enter.
+
+cd; cd ph142-sp20/lab/lab05; python3 turn_in.py
+
+3. Follow the prompts to enter your Gradescope username and password. When entering your password, you won't see anything come up on the screen--don't worry! This is just for security purposes--just keep typing and hit enter.
+4. If the submission is successful, you should see "Submission successful!" appear as output.
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
+
+The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
