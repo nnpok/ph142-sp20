@@ -20,7 +20,7 @@ check_problem1 = function() {
   tests_failed <<- num_tests
   
   # Test cases here:
-
+  
   checkpoint(checkpoint_number = 1,
              test = class(p1) == "numeric" & 
                length(p1) == 1,
@@ -162,7 +162,7 @@ check_problem4 = function() {
 check_problem5 = function() {
   problem_num <- 5 # problem number
   max_scores[problem_num] <<- 1 # total pts possible
-  num_tests <<- 2 # num of checkpoints
+  num_tests <<- 3 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
   problem_names[problem_num] <<- sprintf("Problem %d", problem_num)
@@ -172,15 +172,19 @@ check_problem5 = function() {
   # Test cases here:
   
   checkpoint(checkpoint_number = 1,
-             test = class(p5) == "numeric" & 
-               length(p5) == 1,
+             test = length(p5) == 2,
              correct_message = "Correct!",
-             error_message = "Is p5 a numeric value?")
+             error_message = "Is p5 a vector of 2 values?")
   
   checkpoint(checkpoint_number = 2,
-             test = all.equal(p5, qnorm(0.75, mean = 3350, sd = 440)) ,
+             test = p5[1] == qnorm(0.25, mean = 3350, sd = 440) ,
              correct_message = "Correct!",
-             error_message = "Did you compute the correct range?")
+             error_message = "Did you compute the correct value for 25th percentile")
+
+ checkpoint(checkpoint_number = 2,
+             test = p5[2] == qnorm(0.75, mean = 3350, sd = 440) ,
+             correct_message = "Correct!",
+             error_message = "Did you compute the correct value for 75th percentile")
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -219,7 +223,7 @@ check_problem6 = function() {
              test = all.equal(p6, qnorm(0.25, mean = 2750, sd = 560)) ,
              correct_message = "Correct!",
              error_message = "Did you compute the correct percentile?")
-
+  
   
   # Assign appropriate score to problem depending on tests passed/failed
   
@@ -279,7 +283,7 @@ check_problem7 = function() {
 check_problem8 = function() {
   problem_num <- 8 # problem number
   max_scores[problem_num] <<- 1 # total pts possible
-  num_tests <<- 2 # num of checkpoints
+  num_tests <<- 3 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
   problem_names[problem_num] <<- sprintf("Problem %d", problem_num)
@@ -289,15 +293,19 @@ check_problem8 = function() {
   # Test cases here:
   
   checkpoint(checkpoint_number = 1,
-             test = class(p8) == "numeric" & 
-               length(p8) == 1,
+             test = length(p8) == 2,
              correct_message = "Correct!",
-             error_message = "Is p8 a numeric value?")
+             error_message = "Is p8 a vector of 2 values?")
   
   checkpoint(checkpoint_number = 2,
-             test = all.equal(p8, qnorm(0.9, mean = 2750, sd = 560)) ,
+             test = p8[1] == qnorm(0.25, mean = 2750, sd = 560) ,
              correct_message = "Correct!",
-             error_message = "Did you compute the correct range?")
+             error_message = "Did you compute the correct value for 25th percentile")
+
+checkpoint(checkpoint_number = 2,
+           test = p8[2] == qnorm(0.75, mean = 2750, sd = 560),
+           correct_message = "Correct!",
+           error_message = "Did you compute the correct value for 75th percentile")
   
   # Assign appropriate score to problem depending on tests passed/failed
   
