@@ -10,7 +10,7 @@ from os.path import isfile, join
 # Change these for each assignment
 ASSIGNMENT_RMD_PATH = 'mid2-sample.Rmd'
 COURSE_ID = 79434
-ASSIGNMENT_ID = 371086
+ASSIGNMENT_ID = 386521
 # FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
 
 # Don't change these
