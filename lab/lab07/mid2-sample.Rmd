@@ -36,6 +36,9 @@ Here are some commonly used latex math options that you may find useful in answe
 - Sample proportion ($\hat{p}$)  \
 - Null hypothesis ($H_{0}$)  \
 - Alternative hypothesis ($H_{A}$) \
+- Not equal to ($\neq$)  \
+- Distributed as ($\sim$)  \
+- P ($\mathbb{P}$)  \
 
 Symbols that DO NOT require you to use latex math options: 
 
