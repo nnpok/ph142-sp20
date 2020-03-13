@@ -44,6 +44,7 @@ Symbols that DO NOT require you to use latex math options:
 
 - greater than (>)  \
 - less than (<)  \
+- times (\*)  \
 
 
 
