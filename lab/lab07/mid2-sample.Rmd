@@ -46,7 +46,11 @@ Symbols that DO NOT require you to use latex math options:
 - less than (<)  \
 - times (\*)  \
 
+Copy and paste this code to include photos with specific questions. DO NOT ATTACH YOUR PHOTOS HERE, AS THEY WILL NOT COUNT FOR CREDIT.
 
+```{r, echo = F, out.width = "400px", fig.pos="H"}
+knitr::include_graphics("path/to/image.png")
+```
 
 \newpage
 
