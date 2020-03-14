@@ -40,6 +40,7 @@ Here are some commonly used latex math options that you may find useful in answe
 - Not equal to ($\neq$)  \
 - Distributed as ($\sim$)  \
 - P ($\mathbb{P}$)  \
+- Square root ($\sqrt{}$)  \
 
 Symbols that DO NOT require you to use latex math options: 
 
