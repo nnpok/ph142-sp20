@@ -32,6 +32,7 @@ Here are some commonly used latex math options that you may find useful in answe
 - Intersection ($\cap$)  \
 - Mu ($\mu$)   \
 - Sigma ($\sigma$)  \
+- Alpha ($\alpha$)  \
 - Sample mean ($\bar{x}$)  \
 - Sample proportion ($\hat{p}$)  \
 - Null hypothesis ($H_{0}$)  \
@@ -49,7 +50,8 @@ Symbols that DO NOT require you to use latex math options:
 Copy and paste this code to include photos with specific questions. DO NOT ATTACH YOUR PHOTOS HERE, AS THEY WILL NOT COUNT FOR CREDIT.
 
 ```{r, echo = F, out.width = "400px", fig.pos="H"}
-knitr::include_graphics("path/to/image.png")
+# Uncomment the following line and set the appropriate path name 
+#knitr::include_graphics("path/to/image.png")
 ```
 
 \newpage
