@@ -33,9 +33,9 @@ check_problem1 = function() {
              correct_message = "You have rounded the answer to 3 decimals",
              error_message = "Round your answer to 3 decimals")
   checkpoint(checkpoint_number = 3,
-             test = sd_earthquake == 1.225 ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = sd_earthquake >1 & sd_earthquake<2 ,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -75,9 +75,9 @@ check_problem2 = function() {
              correct_message = "You have rounded the answer to 3 decimals",
              error_message = "Round your answer to 3 decimals")
   checkpoint(checkpoint_number = 3,
-             test = probability == 0.558 ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = probability>0.3 & probability<0.8 ,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -166,9 +166,9 @@ check_problem5 = function() {
              error_message = "Answer should be numeric")
   
   checkpoint(checkpoint_number = 2,
-             test = probability_109_or_more == 0 ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = probability_109_or_more <1  ,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -256,9 +256,9 @@ check_problem8 = function() {
              error_message = "Answer should be numeric")
   
   checkpoint(checkpoint_number = 2,
-             test = sampling_dist_mean == 0.53 ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = sampling_dist_mean > 0 &sampling_dist_mean<1,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -298,9 +298,9 @@ check_problem9 = function() {
              correct_message = "You have rounded the answer to 3 decimals",
              error_message = "Round your answer to 3 decimals")
   checkpoint(checkpoint_number = 3,
-             test = sampling_dist_sd == 0.025 ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = sampling_dist_sd >0 & sampling_dist_sd <1 ,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -408,9 +408,9 @@ check_problem13 = function() {
   # Test cases here:
   
   checkpoint(checkpoint_number = 1,
-             test = nytimes_answer=="a", 
-             correct_message = "Correct",
-             error_message = "Wrong")
+             test = nytimes_answer=="a" | nytimes_answer== "b" | nytimes_answer== "c" | nytimes_answer== "d", 
+             correct_message = "Correct Format",
+             error_message = "Wrong Format")
   
 
   # Assign appropriate score to problem depending on tests passed/failed
@@ -432,7 +432,7 @@ check_problem13 = function() {
 check_problem14 = function() {
   problem_num <- 14 # problem number
   max_scores[problem_num] <<- 1 # total pts possible
-  num_tests <<- 3 # num of checkpoints
+  num_tests <<- 2 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
   problem_names[problem_num] <<- sprintf("Problem %d", problem_num)
@@ -449,11 +449,7 @@ check_problem14 = function() {
   checkpoint(checkpoint_number = 2,
              test = nchar(ci_99[1])==6, 
              correct_message = "You have rounded the answer to 3 decimals",
-             error_message = "Round your answer to 3 decimals")
-  checkpoint(checkpoint_number = 3,
-             test =ci_99[1]==85.592&ci_99[2]==96.608,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             error_message = "Round your answer to 3 decimals"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -526,7 +522,7 @@ check_problem16 = function() {
 check_problem17 = function() {
   problem_num <- 17 # problem number
   max_scores[problem_num] <<- 1 # total pts possible
-  num_tests <<- 3 # num of checkpoints
+  num_tests <<- 2 # num of checkpoints
   
   problem_types[problem_num] <<- "autograded" # choices: autograded, free-response
   problem_names[problem_num] <<- sprintf("Problem %d", problem_num)
@@ -543,11 +539,7 @@ check_problem17 = function() {
   checkpoint(checkpoint_number = 2,
              test = nchar(ci_95[1])==6, 
              correct_message = "You have rounded the answer to 3 decimals",
-             error_message = "Round your answer to 3 decimals")
-  checkpoint(checkpoint_number = 3,
-             test =ci_95[1]==86.909 & ci_95[2]==95.291,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             error_message = "Round your answer to 3 decimals"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -639,9 +631,9 @@ check_problem20 = function() {
              correct_message = "You have rounded the answer to 3 decimals",
              error_message = "Round your answer to 3 decimals")
   checkpoint(checkpoint_number = 3,
-             test = all.equal(z_stat, 2.385),
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = z_stat> 0 &z_stat<10 ,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
@@ -680,9 +672,9 @@ check_problem21 = function() {
              correct_message = "You have rounded the answer to 3 decimals",
              error_message = "Round your answer to 3 decimals")
   checkpoint(checkpoint_number = 3,
-             test = all.equal(p_val, 0.017) ,
-             correct_message = "Correct",
-             error_message = "Wrong answer"
+             test = p_val >0 & p_val<1,
+             correct_message = "In Correct Range",
+             error_message = "In Wrong Range"
   )
   
   # Assign appropriate score to problem depending on tests passed/failed
