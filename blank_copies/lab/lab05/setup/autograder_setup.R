@@ -105,7 +105,7 @@ checkpoint <- function(checkpoint_number, test, correct_message = "", error_mess
   }
   )))
   
-
+  
 }
 
 #--------------------------------------------------------------------------------------
@@ -127,7 +127,7 @@ return_score <- function(problem_num, num_tests, num_failed) {
   
   if (problem_types[problem_num] == "autograded") {
     cat(sprintf("\nProblem %d\nCheckpoints Passed: %d\nCheckpoints Errored: %d\n%g%% passed\n--------\nTest: %s\n", 
-              problem_num, num_passed, num_failed, round(num_passed/num_tests * 100, digits = 2), score))
+                problem_num, num_passed, num_failed, round(num_passed/num_tests * 100, digits = 2), score))
   } else {
     cat(sprintf("\nProblem %d\nTest: NOT YET GRADED\n", 
                 problem_num, num_passed, num_failed, round(num_passed/num_tests * 100, digits = 2), score))
@@ -176,11 +176,3 @@ total_score <- function() {
   return(rendered_score)
 }
 
-
-
-
-
-# for testing # TODO: remove
-# scores = c(0, 1, 3, 2, 2, 2, 0)
-# max_scores = c(1, 1, 3, 4, 3, 2, 1)
-# problem_types = c("autograded", "autograded", "free-response", "autograded", "free-response", "autograded", "autograded")

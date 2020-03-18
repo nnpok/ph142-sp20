@@ -8,10 +8,10 @@ from os import listdir
 from os.path import isfile, join
 
 # Change these for each assignment
-ASSIGNMENT_RMD_PATH = 'hw05-probability-distributions.Rmd'
+ASSIGNMENT_RMD_PATH = 'hw06-poisson-and-CI.Rmd'
 COURSE_ID = 79434
-ASSIGNMENT_ID = 371086
-# FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
+ASSIGNMENT_ID = 378503
+# FRQ_PAGES = [4, 5, 7, 8, 11, 12, 13, 16, 17, 19, 20, 23] # pages to be exported as FRQ (from knitted file)
 
 # Don't change these
 PDF_PATH = ASSIGNMENT_RMD_PATH.replace('.Rmd', '.pdf')
@@ -36,7 +36,7 @@ class APIClient:
 
         self.token = r.json()['token']
 
-    def upload_pdf_submission(self, course_id, assignment_id, student_email, filename):
+    def upload_programming_submission(self, course_id, assignment_id, student_email, filenames):
         url = "{base}/api/v1/courses/{0}/assignments/{1}/submissions".format(
             course_id, assignment_id, base=BASE_URL
         )
@@ -44,7 +44,7 @@ class APIClient:
         form_data = {
             "owner_email": student_email
         }
-        files = {'pdf_attachment': open(filename, 'rb')}
+        files = [('files[]', (filename, open(filename, 'rb'))) for filename in filenames]
 
         request_headers = {'access-token': self.token}
 
@@ -79,9 +79,9 @@ if __name__ == '__main__':
 
     # Use the APIClient to upload submissions after logging in, e.g:
     # client.upload_pdf_submission(1234, 5678, 'student@example.edu', 'submission.pdf')
-    # src_files = [join("src", f) for f in listdir("src") if isfile(join("src", f))]
-    # files = src_files + [ASSIGNMENT_RMD_PATH, PDF_PATH]
-    client.upload_pdf_submission(COURSE_ID, ASSIGNMENT_ID, email, PDF_PATH)
+    src_files = [join("src", f) for f in listdir("src") if isfile(join("src", f))]
+    files = src_files + [ASSIGNMENT_RMD_PATH, PDF_PATH]
+    client.upload_programming_submission(COURSE_ID, ASSIGNMENT_ID, email, files)
     # You can get course and assignment IDs from the URL, e.g.
     # https://www.gradescope.com/courses/1234/assignments/5678
     # course_id = 1234, assignment_id = 5678
