@@ -207,7 +207,7 @@ check_problem11()
 ```
 \newpage
 
-**12. [2 points] Suppose you are interested in the order of sleep time, but according to whether the animal is a carnivore, herbivore, or omnivore. Rewrite the above statement to order sleep time according to the type of "-vore" that then animal is:**
+**12. [2 points] Suppose you are interested in the order of longest sleep time to shortest sleep time, but according to whether the animal is a carnivore, herbivore, or omnivore. Rewrite the above statement to order sleep time according to the type of "-vore" that then animal is:**
 
 ```{r order-within}
 sleep_time_vore <- "<<<<YOUR CODE HERE>>>>"

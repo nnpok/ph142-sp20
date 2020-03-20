@@ -1,0 +1,129 @@
+---
+title: "HW07:  Inference"
+author: "Your name and student ID"
+date: "Today's date"
+output: pdf_document
+---
+
+* Due date: March 18, 10:00pm (make sure to provide enough time for Gradescope
+submission to be uploaded).
+* Late penalty: 50% late penalty if submitted within 24 hours of due date, no 
+marks for assignments submitted thereafter.
+* Each answer must be on a separate page. Don't delete any `\newpage` tags.
+
+**Remember: This homework does not involve autograder checking!**
+
+* Submission process: Follow the submission instructions on the final page. Make sure you do not remove any `\newpage` tags or rename this file, as this will break the submission.
+
+Helpful hints:
+
+- Knit your file early and often to minimize knitting errors! If you copy and 
+paste code, you are bound to get an error that is hard to diagnose. 
+We recommend knitting your file each time after you write a few sentences/add 
+a new code chunk, so you can detect the source of knitting errors more easily.
+
+Useful mathematical notation in markdown:
+
+$$\mu$$
+
+$$\sigma$$
+
+
+
+- When this file is completed and knit, your pdf should have X pages.  Each answer should be on a separate page.
+Please leave the pagebreaks statements in place to ensure that this is the case.
+
+
+--------------------------------------------------------------------------------
+
+\newpage
+1. Suppose we want to estimate the mean weight gain among a cohort of
+college freshmen. We randomly sample 324 freshmen and follow them over
+the entirety of their first year. Unknown to us, in the entire cohort, the mean
+weight gain over the year is 20 pounds and the standard deviation is 9 pounds.
+What is the expected value and the standard error of the sample mean?
+
+
+\newpage
+
+## Question 2 [2 points]
+Which of the following is an appropriate statement of the central limit theorem? Select just one.
+
+Your answer: __(replace this with a numeric choice, 1-6)__
+
+  (1) The central limit theorem states that if you take a large random sample from a population and the data in the population are normally distributed, the data in your sample will be normally distributed.
+  
+  (2) The central limit theorem states that if you take a large random sample from a population, the data in your sample will be normally distributed.
+ 
+  (3) The central limit theorem states that if you take many large random samples from a population and the data in the population are normally distributed, the sample means will be normally distributed.
+  
+  (4) The central limit theorem states that if you take many large random samples from a population, the sample means will be normally distributed.
+ 
+  (5) The central limit theorem states that if you take many large random samples from a population and the data in the population are normally distributed, the data from the pooled samples will be normally distributed.
+  
+  (6) The central limit theorem states that if you take many large random samples from a population, the data from the pooled samples will be normally distributed.
+
+
+
+\newpage
+3.  Fill in the blanks:
+
+As $n$ increases the estimate $\bar{x}$ gets closer to  __________________
+
+
+
+
+\newpage
+4. Read the article from the New York times on margins of error in polling
+
+https://www.nytimes.com/2016/10/06/upshot/when-you-hear-the-margin-of-error-is-plus-or-minus-3-percent-think-7-instead.html
+
+Name 2 sources of error mentioned in the article other than the error related to sampling variability.
+
+<YOUR ANSWER HERE>
+
+\newpage
+
+Please watch this short video about shifting the population distribution.
+
+https://www.youtube.com/watch?v=8BJNzH6_JpU
+
+Read the 2001 reprint of the 1985 article "Sick Individuals and Sick Populations" by Geoffrey Rose.
+
+Some things to think about from this article.
+What is the issue Rose highlights with exposures that are very common in a population?
+
+<YOUR ANSWER HERE>
+
+What are the differences in how the high risk vs population strategies affect the distribution?
+
+<YOUR ANSWER HERE>
+
+5.  The ban on smoking in public places (restaurants, bars etc) was argued legally based on the rights of staff in these locations to be free of second hand smoke.  The impact has been a shift in the curve of tobacco exposure, smoking and smoking related health outcomes.  Name another type or example of an intervention that has been promoted recently based on this idea of shifting the curve in the population?
+
+<YOUR ANSWER HERE>
+
+
+\newpage
+
+### Submission
+
+For assignments in this class, you'll be submitting using the **Terminal** tab in the pane below. In order for the submission to work properly, make sure that:
+
+1. Any image files you add that are needed to knit the file are in the `src` folder and file paths are specified accordingly. 
+2. You **have not changed the file name** of the assignment.
+3. The file is saved (the file name in the tab should be **black**, not red with an asterisk).
+4. The file knits properly.
+
+Once you have checked these items, you can proceed to submit your assignment.
+
+1. Click on the **Terminal** tab in the pane below.
+2. Copy-paste the following line of code into the terminal and press enter.
+
+cd; cd ph142-sp20/hw/hw07; python3 turn_in.py
+
+3. Follow the prompts to enter your Gradescope username and password. When entering your password, you won't see anything come up on the screen--don't worry! This is just for security purposes--just keep typing and hit enter.
+4. If the submission is successful, you should see "Submission successful!" appear as output.
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
+
+The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.

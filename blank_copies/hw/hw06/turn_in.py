@@ -8,10 +8,10 @@ from os import listdir
 from os.path import isfile, join
 
 # Change these for each assignment
-ASSIGNMENT_RMD_PATH = 'lab03-regression.Rmd'
+ASSIGNMENT_RMD_PATH = 'hw06-poisson-and-CI.Rmd'
 COURSE_ID = 79434
-ASSIGNMENT_ID = 350430
-# FRQ_PAGES = [5, 7, 9] # pages to be exported as FRQ (from knitted file)
+ASSIGNMENT_ID = 378503
+# FRQ_PAGES = [4, 5, 7, 8, 11, 12, 13, 16, 17, 19, 20, 23] # pages to be exported as FRQ (from knitted file)
 
 # Don't change these
 PDF_PATH = ASSIGNMENT_RMD_PATH.replace('.Rmd', '.pdf')
