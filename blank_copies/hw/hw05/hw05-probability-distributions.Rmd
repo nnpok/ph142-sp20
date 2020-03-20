@@ -297,3 +297,4 @@ cd; cd ph142-sp20/hw/hw05; python3 turn_in.py
 5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
 
 The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
+

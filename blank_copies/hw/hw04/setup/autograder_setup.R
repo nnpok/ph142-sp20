@@ -184,3 +184,4 @@ total_score <- function() {
 # scores = c(0, 1, 3, 2, 2, 2, 0)
 # max_scores = c(1, 1, 3, 4, 3, 2, 1)
 # problem_types = c("autograded", "autograded", "free-response", "autograded", "free-response", "autograded", "autograded")
+
