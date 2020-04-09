@@ -155,6 +155,7 @@ t.test(x = hemoglobin %>% filter(ward == "Ward A") %>% pull(hemo_level),
 ```
 
 --------------------------------------------------------------------------------
+
 \newpage
 
 The time to perform open heart surgery is normally distributed. Sixteen 
