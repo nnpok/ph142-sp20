@@ -1,0 +1,352 @@
+---
+title: 'Lab 09'
+output: pdf_document
+---
+
+```{r setup, include = FALSE}
+# Don't change these lines, just run them!
+source("setup/lab09.RAGS.R")
+```
+
+### NHANES
+The NHANES is a large national survey conducted by the CDC.  Here we will look at a reduced set of data from the NHANES
+
+```{r read, echo=FALSE}
+# load in the appropriate libraries
+library(readr)
+library(ggplot2)
+library(forcats)
+library(dplyr)
+library(broom)
+
+# Read CSV into R
+nhanes <- read_csv(file="nhanes.csv")
+
+nhanes <- na.omit(nhanes) #this code skip rows with missing values
+```
+
+1. [1 mark] We are interested in looking at the systolic blood pressure "bpxsy1" by BMI category "bmicat"
+Start by generating an appropriate box plot to look at these data.
+
+```{r box, echo=TRUE}
+plot1 <- "Your plot here"
+plot1 
+
+
+check_problem1()
+```
+\newpage
+
+2. [1 mark] Now generate a set of stacked histograms that show the same data.
+
+```{r hist, echo=TRUE}
+plot2 <- "Your plot here"
+plot2
+
+
+check_problem2()
+```
+\newpage
+
+3. [2 marks] Summarize the means and standard deviations of the outcome for each BMI category
+
+```{r hist2, echo=TRUE}
+p3 <- "Your code here"
+p3
+
+
+check_problem3()
+```
+\newpage
+
+4. [2 marks] Now run the ANOVA test to see if the variability gives us evidence to reject the null hypothesis of no difference between blood pressure means by BMI category.
+
+```{r,echo=TRUE}
+p4 <- "YOUR CODE HERE"
+tidy(p4) #tidy displays your output. It lives in the `broom` package
+
+
+
+check_problem4()
+```
+\newpage
+
+5. [2 marks] Use these results to conduct a Tukey's HSD for these groups. Use the standard error rate of 5%. What conclusion can you draw?
+
+```{r,echo=TRUE}
+p5 <- "Your code here"
+tidy(p5)
+
+
+
+check_problem5()
+```
+
+\newpage
+
+### Boston data on median household value and distance to employment centers
+
+We are examing a data set used to predict housing prices in the area around 
+Boston (Harrison, D. and Rubinfeld, 1978).  We wish to examine specifically the 
+association of the measure of housing price (`medv`, median value of 
+owner-occupied homes in the $1000s) and a measure of adjacency to 
+employment (a weighted distance, roughly in miles).  The data frame (Boston) 
+is contained in another package (MASS), which we load below.
+
+```{r, message=F}
+### NOTE:  All of the code is to get you started on the lab.  
+###         You do not need to understand any functions below 
+###           that you have not seen before.
+
+# load library with data
+library(MASS) # note: this package has a function `select()` that can be confused with dplyr's select.
+# to overcome this, we first import the data we need and then detach the library before loading dplyr.
+
+# list variables
+boston_housing <- read.csv("Boston.csv")
+# variable definition - take a quick look at the variables in the data frame
+help(Boston)
+detach(package:MASS)
+library(broom)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(patchwork)
+
+# because we are doing inference, we take a random sample from the entire population
+# so we can see how well we can make inference when we only have 50 rows of data
+set.seed(123127)
+dat <- boston_housing %>% sample_n(50)
+```
+
+6. [2 marks] Perform and summarize the results of a linear regression of `medv` 
+(median value of owner-occupied homes in \$1000s) and  `dis` (weighted mean of 
+distances to five Boston employment centres) using Boston data. 
+
+Assign the linear model to an object called `p6`.
+
+Be careful about which variable is explanatory and which is response! 
+
+```{r}
+# write your code here.
+p6 <- "YOUR CODE HERE"
+
+
+check_problem6()
+
+```
+
+
+\newpage
+
+7. [2 marks] Interpret the slope parameter and p-value from the table. 
+What null and alternative hypotheses does this p-value 
+refer to?  Store the slope parameter, ROUNDED to 2 decimal places, 
+to the object `p7`.
+
+```{r p7}
+p7 <- "YOUR ANSWER HERE"
+
+
+check_problem7()
+```
+
+
+[TODO: YOUR ANSWER HERE]
+
+
+
+
+\newpage
+
+8. [2 marks] Derive a 95\% CI for this slope parameter and assign the object `p8` 
+to a vector of the lower bound followed by the upper bound of the interval,
+to AT LEAST one decimal place of precision.  
+In your opinion, would you expect 
+the direction of this relationship to hold if the data were collected today?
+
+```{r}
+#Put your code here
+p8 <- "YOUR ANSWER HERE"
+
+
+check_problem8()
+```
+
+[TODO: YOUR ANSWER HERE]
+
+
+
+
+
+\newpage
+
+9. [2 marks] Use a function to look at the r-squared value for this model. 
+Assign the r-squared ROUNDED to 2 decimal places, to the object `p9`. 
+Does `dis` explain alot of the variance in median household value? Would you expect it to? 
+
+```{r}
+p9 <- "YOUR ANSWER HERE"
+
+
+check_problem9()
+
+```
+
+
+[TODO: YOUR ANSWER HERE]
+
+
+
+\newpage
+
+10. [2 marks] Back to the fit of the model of `medv` vs. `dis`.  Make a plot with the raw 
+data points, the fitted line from the simple linear regression model (only 
+containing `medv` and `dis`) and also add a line with a slope of 0. You can have
+that line cross the y axis at the average value of `medv` to vertically bisect 
+the data points. Store your plot as the object `p10`.
+
+```{r p10, echo=F, fig.align='center', out.width="80%"}
+p10 <- "CODE YOUR PLOT HERE"
+
+
+
+check_problem10()
+
+
+```
+
+
+
+
+\newpage
+
+11. [2 marks] For you, does the plot raise any concerns about the assumptions of the linear
+regression you just performed?  What other plots might you do to explore the fit? 
+One helpful plot would compare the distribution of model residuals to a 
+theoretical normal distribution.  Assign the object `p11` to the FIRST TWO LETTERS 
+of the name of this plot.
+
+
+```{r p11}
+p11 <- "YOUR ANSWER HERE"
+
+### OPTIONAL: CODE THE PLOT
+
+
+check_problem11()
+```
+
+[TODO: YOUR ANSWER HERE]
+
+
+
+
+Regardless of your answer, we go forward using the model to make inferences 
+about the points on the line.
+
+
+
+
+\newpage
+
+### Pointwise Confidence Intervals and Multiple Testing
+
+As you learned in lecture, there are two types of confidence intervals 
+applicable to estimating a point on the plot which are related to whether one is
+predicting the population average among individuals with $X=x$ 
+(**mean response**) or whether one is predicting the actual $Y$ for a particular
+individual (** single observation**). For this assignment, we will concentrate 
+on the confidence interval for the mean response.  We do so because it is rare to use 
+statistical models in public health as forecasting models (predicting an 
+individual's health in the future) and more common to use them to estimate 
+population-level changes (how does the mean health change in a population as we 
+change exposure).  However, as precision medicine becomes more of a reality and
+the models accurately predict health (i.e., have high $R^2$'s), then statistical
+forecasting may become more common in our field.
+
+
+
+
+12. [2 marks]  Calculate four 95\% confidence intervals for the mean response, 
+one at each `dis` value: 2.5, 5.0, 7.5, and 10.0 miles. Store the lower bounds 
+for each confidence interval, ROUNDED to two decimal places,
+in a vector called `p12`.
+
+**Hint: Use the predict function, and be sure to specify interval = "predict"**
+
+OPTIONAL: If time, add the four CIs to a scatter plot of the data (along with
+the line of best fit):
+
+
+```{r p12}
+#Put your code here
+### Helpful Data Frame:
+ci_dataframe <-
+  data.frame(dis = c(2.5, 5.0, 7.5, 10))
+
+p12 <- "YOUR CODE AND ANSWER HERE"
+
+
+check_problem12()
+
+```
+
+
+
+\newpage
+
+
+13. [1 mark] Interpret the pointwise 95\% confidence interval 
+of the median house price when distance = 10. 
+
+[YOUR ANSWER HERE]
+
+
+\newpage
+
+
+
+
+
+14. [1 mark] Do the CI's differ in length for different values of `dis`?  Why or why not?
+
+[YOUR ANSWER HERE]
+
+
+
+### Check your score
+
+Click on the middle icon on the top right of this code chunk (with the downwards gray arrow and green bar) to run all your code in order. Then, run this chunk to check your score.
+```{r check-total-score}
+# Just run this chunk.
+total_score()
+```
+
+
+
+
+\newpage
+
+### Submission
+
+For assignments in this class, you'll be submitting using the **Terminal** tab in the pane below. In order for the submission to work properly, make sure that:
+
+1. Any image files you add that are needed to knit the file are in the `src` folder and file paths are specified accordingly. 
+2. You **have not changed the file name** of the assignment.
+3. The file is saved (the file name in the tab should be **black**, not red with an asterisk).
+4. The file knits properly.
+
+Once you have checked these items, you can proceed to submit your assignment.
+
+1. Click on the **Terminal** tab in the pane below.
+2. Copy-paste the following line of code into the terminal and press enter.
+
+cd; cd ph142-sp20/lab/lab09; python3 turn_in.py
+
+3. Follow the prompts to enter your Gradescope username and password. When entering your password, you won't see anything come up on the screen--don't worry! This is just for security purposes--just keep typing and hit enter.
+4. If the submission is successful, you should see "Submission successful!" appear as output.
+5. If the submission fails, try to diagnose the issue using the error messages--if you have problems, post on Piazza. 
+
+The late policy will be strictly enforced, **no matter the reason**, including submission issues, so be sure to submit early enough to have time to diagnose issues if problems arise.
+
