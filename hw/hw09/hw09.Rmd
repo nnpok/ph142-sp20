@@ -48,8 +48,6 @@ avoid this, have a look at your knitted PDF and ensure all the code fits in the
 file. When it doesn't, go back to your .Rmd file and add spaces (new lines) using
 the return or enter key so that the code runs onto the next line.
 
-\newpage
-
 Round your answers to 3 decimal places in general.
 --------------------------------------------------------------------------------
 \newpage
