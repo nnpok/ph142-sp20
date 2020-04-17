@@ -251,12 +251,12 @@ check_problem8 = function() {
              error_message = "Did you use the tidy function")
   
   checkpoint(checkpoint_number = 2,
-             test = "bmicat" %in% p8$term ,
+             test = "bpcat" %in% p8$term ,
              correct_message = "Pass",
              error_message = "Did you use the correct formula")
   
   checkpoint(checkpoint_number = 3,
-             test = "Class II obesity-Class I obesity" %in% p8$comparison,
+             test = "Hypertension-Elevated" %in% p8$comparison,
              correct_message = "Pass",
              error_message = "Did you use the correct formula")
   
