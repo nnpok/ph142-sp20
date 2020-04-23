@@ -274,7 +274,7 @@ one at each `dis` value: 2.5, 5.0, 7.5, and 10.0 miles. Store the lower bounds
 for each confidence interval, ROUNDED to two decimal places,
 in a vector called `p12`.
 
-**Hint: Use the predict function, and be sure to specify interval = "predict"**
+**Hint: Use the predict function, and be sure to specify interval = "confidence"**
 
 OPTIONAL: If time, add the four CIs to a scatter plot of the data (along with
 the line of best fit):

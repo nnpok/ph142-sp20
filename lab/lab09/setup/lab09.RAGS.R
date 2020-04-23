@@ -466,22 +466,22 @@ check_problem12 = function() {
              error_message = "Is p12 vector with four numbers?")
   
   checkpoint(checkpoint_number = 2,
-             test = round(p12[1],1) == 3.6,
+             test = round(p12[1],0) %in% c(4, 20),
              correct_message = "Correct!",
              error_message = "Is this the lower bound for the dis = 2.5 C.I?")
   
   checkpoint(checkpoint_number = 3,
-             test = round(p12[2],1) == 6.3,
+             test = round(p12[2],0) %in% c(6, 23),
              correct_message = "Correct!",
              error_message = "Is this the lower bound for the dis = 5 C.I?")
   
   checkpoint(checkpoint_number = 4,
-             test = round(p12[3],1) == 9,
+             test = round(p12[3],0) %in% c(9, 25),
              correct_message = "Correct!",
              error_message = "Is this the lower bound for the dis = 7.5 C.I?")
   
   checkpoint(checkpoint_number = 5,
-             test = round(p12[4],1) == 11.6,
+             test = round(p12[4],0) %in% c(12, 27),
              correct_message = "Correct!",
              error_message = "Is this the lower bound for the dis = 10 C.I?")
   # Assign appropriate score to problem depending on tests passed/failed
