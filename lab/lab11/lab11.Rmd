@@ -33,7 +33,7 @@ Read in the data from the sample:
 library(readr)
 library(dplyr)
 
-dat <- read_csv("src/wcgs_n200.csv")
+dat <- read_csv("wcgs_n200.csv")
 head(dat)
 ```
 
