@@ -53,7 +53,7 @@ class APIClient:
 
         try:
             r = self.post(url, data=form_data, headers=request_headers, files=files)
-            print("Submission successful!")
+            print("Free-response submission successful!")
             return r
         except:
             print("Error occurred while uploading...\nPlease make sure you didn't change the name" + \
@@ -73,7 +73,7 @@ class APIClient:
 
         try:
             r = self.post(url, data=form_data, headers=request_headers, files=files)
-            print("Submission successful!")
+            print("Programming submission successful!")
             return r
         except:
             print("Error occurred while uploading...\nPlease make sure you didn't change the name" + \
@@ -89,7 +89,7 @@ def generate_frq_rmd(original_rmd_path, frq_list, frq_rmd_path=None):
     curr_q = 0
     should_collect = True
     if not frq_rmd_path:
-        frq_rmd_path = original_rmd_path[:-len(".Rmd")] + "-frq.Rmd"
+        frq_rmd_path = original_rmd_path[:-len(".Rmd")] + "_frq.Rmd"
 
     with open(original_rmd_path) as rf, open(frq_rmd_path, 'w') as wf:
         curr_lines = []
@@ -128,6 +128,15 @@ if __name__ == '__main__':
             subprocess.check_output(['R', '-e', cmd], stderr = None)
     except:
         sys.exit("-----\nError... make sure you haven't changed the file name and make sure the file knits.")
+
+    try:
+        if PROGRAMMING_ASSIGNMENT_ID is not None:
+            cmd = "rmarkdown::render('{}',output_file='{}')".format(ASSIGNMENT_RMD_PATH, PDF_PATH)
+            subprocess.check_output(['R', '-e', cmd], stderr = None)
+    except:
+        sys.exit("-----\nError... make sure you haven't changed the file name and make sure the file knits.")
+    
+
 
     client = APIClient()
     email = input("Please provide the email address on your Gradescope account: ")

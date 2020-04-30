@@ -129,6 +129,15 @@ if __name__ == '__main__':
     except:
         sys.exit("-----\nError... make sure you haven't changed the file name and make sure the file knits.")
 
+    try:
+        if PROGRAMMING_ASSIGNMENT_ID is not None:
+            cmd = "rmarkdown::render('{}',output_file='{}')".format(ASSIGNMENT_RMD_PATH, PDF_PATH)
+            subprocess.check_output(['R', '-e', cmd], stderr = None)
+    except:
+        sys.exit("-----\nError... make sure you haven't changed the file name and make sure the file knits.")
+    
+
+
     client = APIClient()
     email = input("Please provide the email address on your Gradescope account: ")
     password = getpass.getpass('Password: ')
