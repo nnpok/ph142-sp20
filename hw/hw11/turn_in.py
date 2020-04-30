@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
     if PROGRAMMING_ASSIGNMENT_ID is not None:
         src_files = [join("src", f) for f in listdir("src") if isfile(join("src", f))]
-        files = src_files + [ASSIGNMENT_RMD_PATH, FRQ_PATH]
+        files = src_files + [ASSIGNMENT_RMD_PATH, PDF_PATH]
         client.upload_programming_submission(COURSE_ID, PROGRAMMING_ASSIGNMENT_ID, email, files)
     # You can get course and assignment IDs from the URL, e.g.
     # https://www.gradescope.com/courses/1234/assignments/5678

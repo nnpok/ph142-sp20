@@ -1,5 +1,5 @@
 ---
-title: "Assignment 11"
+title: "Homework 11"
 author: "Your name and student ID"
 date: "Today's date"
 output:
@@ -9,6 +9,7 @@ output:
 ```{r, warning=F, message=F, echo=F}
 library(dplyr)
 library(ggplot2)
+library(tidyverse)
 ```
 
 * Due date: Tuesday, May 5 10:00pm.
@@ -63,8 +64,7 @@ households earning < $30,000 is different from that of all income levels. Does
 this correspond to a chi-square test of independence or a chi-square test for 
 goodness of fit?
 
-TODO: YOUR ANSWER HERE
-
+[TODO: YOUR ANSWER HERE]
 
 
 \newpage
@@ -80,34 +80,28 @@ partial_pay <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 no_pay <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem2()
-
 ```
 
 \newpage
 
 3. [1 point] State the null hypothesis under which the above expected counts were computed.
 
-TODO: YOUR ANSWER HERE
-
+[TODO: YOUR ANSWER HERE]
 
 
 \newpage
 
 
-4. [1 points] Compute the chi-square statistic. Round your answer to 2 decimal places.
+4. [1 point] Compute the chi-square statistic. Round your answer to 2 decimal places.
 
 ```{r}
 # put your answer here
 chi_sq_answer <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem4()
-
 ```
-
 
 
 \newpage
@@ -117,16 +111,13 @@ check_problem4()
 ```{r}
 # UNCOMMENT THE CORRECT ANSWER
 
-#largest_contribution <- "full pay"
-#largest_contribution <- "partial pay"
-#largest_contribution <- "no pay"
-
+# largest_contribution <- "full pay"
+# largest_contribution <- "partial pay"
+# largest_contribution <- "no pay"
 
 
 check_problem5()
-
 ```
-
 
 
 \newpage
@@ -138,11 +129,8 @@ check_problem5()
 p_value <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem6()
-
 ```
-
 
 
 \newpage
@@ -152,20 +140,15 @@ check_problem6()
 ```{r}
 # UNCOMMENT THE CORRECT ANSWER
 
-#conclusion <- "in favor of null"
-#conclusion <- "against null"
-
+# conclusion <- "in favor of null"
+# conclusion <- "against null"
 
 
 check_problem7()
-
 ```
 
 
-
-
 \newpage
-
 
 Human papillomavirus (HPV) is a very common STI that most sexually
 active persons will encounter during their lifetimes. While many people clear 
@@ -190,13 +173,11 @@ these data on age and HPV status for the sample:
 ```{r}
 # UNCOMMENT THE CORRECT ANSWER
 
-#variable_type <- c("explanatory: age group", "response: HPV status")
-#variable_type <- c("explanatory: HPV status", "response: age group")
-
+# variable_type <- c("explanatory: age group", "response: HPV status")
+# variable_type <- c("explanatory: HPV status", "response: age group")
 
 
 check_problem8()
-
 ```
 
 \newpage
@@ -205,9 +186,7 @@ check_problem8()
 whether there is a relationship between age group and HPV status. State these 
 hypotheses using the language or notation of conditional distributions.
 
-
-TODO: YOUR ANSWER HERE
-
+[TODO: YOUR ANSWER HERE]
 
 
 \newpage
@@ -217,8 +196,7 @@ status. Based on this plot, which age group will contribute the most to the
 chi-square statistic? Explain why.
 (That is, can you tell based on this plot when the observed count will differ most from the expected count under the null hypothesis of no relationship between age group and HPV status?) 
 
-TODO: YOUR ANSWER HERE
-
+[TODO: YOUR ANSWER HERE]
 
 
 ```{r create-hpv.data, echo=F, out.width="80%", fig.align=T, message=F}
@@ -229,7 +207,6 @@ number_of_women <- c(160, 85, 48, 90, 82, 50,
 
 hpv_data <- data.frame(age_group, hpv_test, number_of_women)
 
-library(tidyverse)
 hpv_data <- hpv_data %>% group_by(hpv_test) %>% 
   mutate(sum_women = sum(number_of_women),
          prop_women_age = number_of_women/sum_women)
@@ -275,11 +252,9 @@ L <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 M <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem11()
 
 ```
-
 
 
 
@@ -292,11 +267,8 @@ check_problem11()
 chi_sq_p12 <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem12()
-
 ```
-
 
 
 \newpage
@@ -304,15 +276,11 @@ check_problem12()
 13. [1 point] Calculate the p-value for your test statistic. Round your answer to 2 decimal places.
 
 ```{r}
-# put your answer here
 p_value_p13 <- "REPLACE WITH NUMBER ROUNDED TO 2 DECIMALS"
 
 
-
 check_problem13()
-
 ```
-
 
 
 \newpage
@@ -321,17 +289,12 @@ check_problem13()
 
 ```{r}
 # UNCOMMENT THE CORRECT ANSWER
-
-#conclusion_p14 <- "in favor of null"
-#conclusion_p14 <- "against null"
-
+# conclusion_p14 <- "in favor of null"
+# conclusion_p14 <- "against null"
 
 
 check_problem14()
-
 ```
-
-
 
 
 \newpage
