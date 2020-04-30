@@ -141,11 +141,11 @@ if __name__ == '__main__':
     # client.upload_pdf_submission(1234, 5678, 'student@example.edu', 'submission.pdf')
 
     if FRQ_ASSIGNMENT_ID is not None:
-        client.upload_pdf_submission(COURSE_ID, FRQ_ASSIGNMENT_ID, email, PDF_PATH)
+        client.upload_pdf_submission(COURSE_ID, FRQ_ASSIGNMENT_ID, email, FRQ_PATH)
 
     if PROGRAMMING_ASSIGNMENT_ID is not None:
         src_files = [join("src", f) for f in listdir("src") if isfile(join("src", f))]
-        files = src_files + [ASSIGNMENT_RMD_PATH]
+        files = src_files + [ASSIGNMENT_RMD_PATH, PDF_PATH]
         client.upload_programming_submission(COURSE_ID, PROGRAMMING_ASSIGNMENT_ID, email, files)
     # You can get course and assignment IDs from the URL, e.g.
     # https://www.gradescope.com/courses/1234/assignments/5678
