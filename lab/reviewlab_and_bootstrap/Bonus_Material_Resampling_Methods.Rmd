@@ -1,0 +1,106 @@
+---
+title: "Bonus Material - Resampling Methods"
+date: "05/06/2020"
+output: pdf_document
+---
+
+This supplement to your housing price lab includes two practice questions 
+regarding nonparametric estimation of the correlation coefficient.
+
+We are still using the Boston housing data set.  However, we will be loading a 
+different version of the data that includes granular geographic variables.
+
+First, make sure the following packages are loaded:
+
+```{r, warning = FALSE, message = FALSE}
+
+### the classics
+library(broom)
+library(tidyverse)
+```
+
+Now, load the Boston housing data with new variables: 
+(DON'T CHANGE THE SEED -- This ensures we all get the same results.)
+```{r}
+set.seed(20200507)
+housing_data <- readRDS("boston_housing_data_with_geo_vars.RDS")
+
+```
+
+We are going to randomly sample 75 neighborhoods from the data, since this is data on the whole population 
+of Boston neighborhoods:
+```{r}
+housing_data <-
+  housing_data %>% 
+  sample_n(75, replace=FALSE)
+```
+
+
+
+**Question 1**
+
+I am interested in creating a 95% confidence interval 
+for the correlation between median home value in 1000s (`MEDV`) 
+and pupil teacher ratio (`PTRATIO`) by town.
+
+Think back to the formulas we covered in class (from the textbook) to create
+confidence intervals. None of those formulas applied to the correlation coefficient.
+However, we learned an alternative method to calculate confidence intervals.
+
+**1(a) What alternative method can I use to create a 95% confidence interval for the correlation between `MEDV` and `PTRATIO`?**
+
+Your answer here.
+
+**1(b) Why might I prefer using this method to the t-distribution based methods?**
+
+Your answer here.
+
+**1(c) Describe in words how you might carry out this alternative method.**
+
+Your answer here.
+
+**1(d) Code this alternative method for our data in R (do 10000 bootstraps).**
+
+*Hint: Here is some starter code to create a 'loop' of Bootstrap samples*
+
+```{r}
+### create storage vector for bootstrap correlations
+bootstrap_corrs <-
+  ### just creates 100 filler 0's for now
+  rep(0, 100)
+
+for(i in 1:100) {
+  print(i)
+}
+```
+
+
+
+Your code and answer here.
+
+
+
+**1(e) Create a quantile-based and a normal-based bootsrap 95% confidence interval.**
+
+Your code and answer here.
+
+
+\newpage
+
+**Question 2**
+
+**2(a) Now, run a linear model of 'MEDV' on 'PTRATIO'.  Write down a 95% confidence interval for the slope parameter based on your regression summary.**
+
+Your code and answer here.
+
+
+**2(b) Create a bootstrap 95% confidence interval for the slope parameter instead.**
+**
+*Hint: Create your bootstrap samples BEFORE running the linear regression.  Then collect the slope estimate from the bootstrap sample.*
+
+Your code and answer here.
+
+
+
+
+
